@@ -47,18 +47,20 @@ global $product;
 	//MAYORISTAS QUITO							006
 	//STOCK DE GARANTIAS Y REPUESTOS			007*
 	//CONSIGNACIÓN								008*
-	//SAMSUNG BAHIA								009
-	//LUIS CORDERO								010
+	//SAMSUNG BAHIA								009*
+	//LUIS CORDERO								010*
 	//SAMSUNG CUENCA							011
 	//BODEGA DE CUARENTENA						012*
 	//ACCESORIOS								013
-	//ME COMPRAS SAMSUNG						014
+	//ME COMPRAS SAMSUNG						014*
 	//BLU BAHIA									015
 	//SAMSUNG MALL GUAYAQUIL					016
 	//SAMSUNG MALL CUENCA						017
-	//CELISTIC 									019*
+	//CELISTIC 									019
+	//MANTA 									020
+	//PORTOVIEJO 								022
 
-	$listaBodegas = array("001", "002", "003", "006", "009", "010", "011", "013", "014", "015", "016", "017");
+	$listaBodegas = array("001", "002", "003", "006", "011", "013", "015", "016", "017", "019", "020", "022");
 	//var_dump($listaBodegas);
 
 	//Producto con Variaciones.
@@ -121,7 +123,7 @@ global $product;
 			$curlPrecios = curl_init();
 
 			curl_setopt_array($curlPrecios, array(
-				CURLOPT_URL => "http://172.22.106.233:8080/grunsoft/rest/mecompras/api/v1/mecompras",
+				CURLOPT_URL => "http://10.1.10.102:8080/grunsoft/rest/mecompras/api/v1/mecompras",
 				CURLOPT_RETURNTRANSFER => true,
 				CURLOPT_ENCODING => "",
 				CURLOPT_MAXREDIRS => 10,
@@ -172,7 +174,7 @@ global $product;
 						$product_id = wc_get_product_id_by_sku($sku_texto);
 						//Configurar objeto de producto WooCommerce
 						$product = wc_get_product($product_id);
-						//$product->set_price(800.00); 
+						//$product->set_price(800.00);
 						$product->set_regular_price($precio2);
 						$product->set_sale_price($precio1);
 						//Gestionar el inventario
@@ -220,7 +222,7 @@ global $product;
 						// Configurar objeto de producto WooCommerce
 						$product = wc_get_product($product_id);
 
-						//$product->set_price(700); 
+						//$product->set_price(700);
 						$product->set_regular_price($precio2);
 						$product->set_sale_price($precio1);
 						//$product->set_stock_status('instock');
@@ -298,7 +300,7 @@ global $product;
 		$curlPrecios = curl_init();
 
 		curl_setopt_array($curlPrecios, array(
-			CURLOPT_URL => "http://172.22.106.233:8080/grunsoft/rest/mecompras/api/v1/mecompras",
+			CURLOPT_URL => "http://10.1.10.102:8080/grunsoft/rest/mecompras/api/v1/mecompras",
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_ENCODING => "",
 			CURLOPT_MAXREDIRS => 10,
@@ -341,7 +343,7 @@ global $product;
 				//Verificar que llega el correo.
 				if (isset($p_simple)) {
 					//$texto = $p_simple;
-					//$product->set_price(700); 
+					//$product->set_price(700);
 					$product->set_regular_price($precio2);
 					$product->set_sale_price($precio1);
 					//Gestionar el inventario
@@ -383,7 +385,7 @@ global $product;
 				//Verificar que llega el correo.
 				if (isset($p_simple)) {
 					//$texto = $p_simple;
-					//$product->set_price(700); 
+					//$product->set_price(700);
 					$product->set_regular_price($precio2);
 					$product->set_sale_price($precio1);
 					//$product->set_stock_status('instock');
